@@ -1,0 +1,153 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+  body {
+    height: 100%; /*setting this explicitly is important*/
+      flex-direction: column;
+  }
+
+body {
+    display: flex; /*flex superpowers activated! */
+    flex-direction: column; /*Stack the flex-items (main and footer elements) vertically NOT horizontally*/
+  }
+
+
+.menu {
+
+    padding-bottom: 5px;
+    background-color: blue;
+/*    background-image: linear-gradient( blue, dodgerblue);*/
+    display: flex;
+width: inherit;
+    justify-content: space-around;
+    color: white;
+    font-size: 20px;
+
+}
+
+.menuBlank
+{
+    width: 65%;
+}
+
+.menuItem a
+{
+    
+    color:white;
+}
+
+a
+{
+    color:black;
+}
+
+
+.headerContainer {
+  color: #fff;
+/*  background-color: dodgerblue;   */
+/*  padding: 20px 0;*/
+     display: flex;
+     justify-content: flex-end;
+    
+    background-image: linear-gradient(dodgerblue, blue);
+    
+}
+
+.header {
+/*  border: 1px solid #fff;    */
+  width: 100%;
+    height: 100%;
+    margin-left: 15px;
+    margin-right: 15px;
+    display: flex;
+    justify-content: center;
+    
+}
+
+
+.title
+{font-size: 50px;
+ align-self: flex-start;
+    justify-content: flex-start;
+    padding: 20px;
+  
+    
+}
+
+main
+{
+    display:flex;
+    flex-direction: column;
+        background-color: #F8F4FF;
+
+    height:100%;
+    
+}
+
+.mainRow1Container
+
+{
+    display: flex;
+    color:black;
+    justify-content: space-around;
+    height: 40%;
+    align-items: center;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+
+.mainRow2Container
+
+{
+    display: flex;
+    color:black;
+        justify-content: space-around;
+        height: 40%;
+    align-items: center;
+    font-weight: bold;
+    font-size: 30px;
+
+
+    
+}
+
+footer {
+
+            
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background-color: #F8F4FF;
+
+  }
+
+.topicListContainer
+
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.topicColumn
+
+{
+        flex-direction: column;
+
+    
+}
+
+ul
+{
+    list-style: none;
+    padding-left: 0;
+    font-size: 25px;
+    
+}
+
+.topicHeading
+{
+    font-size: 30;
+    
+}

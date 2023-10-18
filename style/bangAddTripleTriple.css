@@ -1,0 +1,152 @@
+* {
+    box-sizing: border-box;
+}
+
+.menu {
+
+    padding-bottom: 5px;
+    background-color: blue;
+/*    background-image: linear-gradient( blue, dodgerblue);*/
+    display: flex;
+width: inherit;
+    justify-content: space-around;
+    color: white;
+    font-size: 20px;
+
+}
+
+.menuBlank
+{
+    width: 65%;
+}
+
+.menuItem a
+{
+    
+    color:white;
+}
+
+
+
+
+.headerContainer {
+  color: #fff;
+/*  background-color: dodgerblue;   */
+/*  padding: 20px 0;*/
+    height:50px;
+    display: flex;
+     justify-content: center;
+    align-content: center
+    
+    
+}
+
+.header {
+/*  border: 1px solid #fff;    */
+  width: 100%;
+    height: 100%;
+    
+        background-image: linear-gradient(dodgerblue, blue);
+
+    align-content: center;
+/*
+    margin-left: 15px;
+    margin-right: 15px;
+*/
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    
+}
+
+.title
+
+{
+    align-self: flex-end;
+}
+
+
+     body
+{
+    background-color: #F8F4FF;
+}
+            
+            article {
+/*    float: right;*/
+    padding: 20px;
+    width: 90%;
+    background-color: #F8F4FF;
+    height: 100px;   
+}
+        
+        .buttonA
+        {
+            background-color:lightgreen;
+            width:150px;
+            height:70px;
+            font-size:50px;
+            font-family:Times New Roman;
+            text-align: center;
+/*            padding: 0px;*/
+/*            margin: 0px auto;*/
+/*            display:block;*/
+        }
+        
+        
+        .buttonB
+        {
+         background-color:yellow;
+            width:150px;
+            height:70px;
+            font-size:50px;
+            font-family:Times New Roman; 
+            text-align: center;
+/*            padding: 0px;*/
+/*            margin: 0px auto;*/
+/*            display: inline-block;*/
+            
+        }
+
+#questionNumber 
+{
+    font-size: 25px; height: 40px; text-decoration: underline;
+    
+}
+
+
+#question
+{
+    font-size: 30px; height: 40px; width:300px; border-style: double; font-weight:bold;
+    
+}
+
+#pointsTeamA, #pointsTeamB
+{
+    
+    font-size: 30px;
+}
+
+
+/*
+a
+    {
+        font-size: 20px;
+    }
+    
+    
+    a:link 
+    {
+        color: darkblue;
+    }
+    a:visited 
+    {
+        color: black;
+    }
+    a:hover
+    {
+        color: hotpink;
+    }
+    a:active
+    {
+        color: darkblue
+    }*/

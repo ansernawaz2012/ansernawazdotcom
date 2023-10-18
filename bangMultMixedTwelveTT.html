@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html>
+
+<title>
+
+Mixed multiplication up to 12
+
+</title>
+
+    
+<!------------------------------------------------------------------
+   
+
+04102018 remove text fields for displaying score and messages, 
+    replace with document.innerhtml
+-------------------------------------------------------------->
+    
+    
+
+<head>
+
+<audio controls id="player" style="display: none">
+<source id="player-src" src="#">
+</audio>
+
+    <script src="scripts/bangCommon.js"></script>
+        <script src="scripts/bangMultMixedTwelveTT.js"></script>
+
+    
+    
+            <link rel="stylesheet" href="style/bang.css">
+
+    
+    <style>
+    
+
+        
+ 
+        
+        
+    </style>
+
+</head>
+
+<body style ="background-color: #f1f1f1;">
+
+
+    <div class = "headerContainer">
+                <div class = "header">
+                <div class = "title">Multiplication - Mixed Numbers up to Twelve </div>
+                
+                
+                
+                </div>
+            
+            </div>
+        
+         <div class = "menuContainer">
+                <div class = "menu">
+                    <div class = "menuBlank"></div>
+                <div class = "menuItem"><a href = "index.html">Home</a></div>
+                    <div class = "menuItem"><a href = "gameIndex.html">Game Menu</a></div>
+
+                
+                
+                </div>
+        
+        </div>
+
+
+
+<script type="text/javascript">
+
+
+
+
+//document.write("<input type='button' value='Start Game' onClick='startGame()'><br>");
+
+
+
+
+
+
+//document.write(questionString)
+
+</script>
+
+    <nav>
+    <p id="questionNumber" align = "left">
+<!--        style="font-size: 25px; height: 40px; text-decoration: underline;">-->
+        
+        </p>
+    </nav>
+    
+<table border="0" align = "center">
+<th>
+<tr>
+    
+<!--    <td id="questionNumber" align = "left" style="font-size: 25px; height: 40px; text-decoration: underline;"></td>-->
+    
+<td id="question" align = "center">
+<!--    style="font-size: 30px; height: 40px; width:250px; border-style: double; font-weight:bold;">-->
+<!--<input type="text" style="font-size: 30px;"  align = "center" id="question" size = 40 maxlength=40 ><br>-->
+</td>
+</tr>
+<tr>
+<td align = "center">
+<!--<input type="button" align = "center" id='startButton' value="Start Game" onClick="startGame()"><br>-->
+</td>
+</th>
+    </table>
+
+<table border="0" align = "center">
+<tr>
+<th style="font-size: 25px;">Team A</th>
+<th width = "300">Vs</th>
+<th style="font-size: 25px;">Team B</th>
+</tr>
+<tr>
+<!--<th style="font-size: 20px;">Points:<input type="text" style="font-size: 20px;"   id="pointsTeamA" size = 3 maxlength=3 ></th>-->
+        <th id="pointsTeamA"   style="font-size: 30px;">
+    </th>  
+
+<!--<th width = "300" style="font-size: 20px;">Question Number: <input type="text" align = "center" style="font-size: 20px;"   id="questionNumber" size = 3 maxlength=3 ></th>-->
+    <th></th>
+<!--<th style="font-size: 20px;">Points:<input type="text" style="font-size: 20px;"   id="pointsTeamB" size = 3 maxlength=3 ></th>-->
+    <th id="pointsTeamB"  style="font-size: 30px;">
+    </th>  
+</tr>
+<tr>
+<td><input type="button" class="buttonA" id="teamAButton1"  name="teamA" disabled = true  value="" onClick= "checkAnswer(answer, answersArray[0], 'teamA')"><br>
+</td>
+<td align = "center"><input type="button"  style="width:200px;height:40;font-size:30px;font-family:Times New Roman" align = "center" id='endButton' disabled = true value="End Game" onClick="endGame()">
+</td>
+<td><input type="button" class="buttonB" id='teamB_Button1'  name="teamB" disabled = true value="" onClick= "checkAnswer(answer, answersArray[0], 'teamB')"><br>
+</td>
+</tr>
+<tr>
+<td><input type="button" class="buttonA" id='teamAButton2'  name="teamA" disabled = true value="" onClick= "checkAnswer(answer, answersArray[1], 'teamA')"><br>
+</td>
+<td align = "center"><input type="button"  style="width:200px;height:40;font-size:30px;font-family:Times New Roman" align = "center" id='startButton' value="Start Game" onClick="startGame()">
+</td>
+<td><input type="button" class="buttonB" id='teamB_Button2'  name="teamB" disabled = true value="" onClick= "checkAnswer(answer, answersArray[1], 'teamB')"></td>
+</tr>
+<tr>
+<td><input type="button" class="buttonA" id='teamAButton3'  id="teamA" disabled = true value="" onClick= "checkAnswer(answer, answersArray[2], 'teamA')"><br>
+</td>
+<td style="font-size: 50px;" align = "center">
+<div id="countDown"></div>
+</td>
+    
+<td><input type="button" class="buttonB" id='teamB_Button3'  name="teamB" disabled = true value="" onClick= "checkAnswer(answer, answersArray[2], 'teamB')"></td>
+</tr>
+<tr>
+<td><input type="button" class="buttonA" id='teamAButton4'  id="teamA" disabled = true value="" onClick= "checkAnswer(answer, answersArray[3], 'teamA')"><br>
+</td>
+<td id = "message" align = "center" style="font-size: 25px; height: 40px; font-weight:bold;">
+</td>
+<td><input type="button" class="buttonB" id='teamB_Button4'  name="teamB" disabled = true value="" onClick= "checkAnswer(answer, answersArray[3], 'teamB')"></td>
+</tr>
+    <tr>
+        
+    </tr>
+</table>
+   
+    
+
+
+
+
+
+
+<footer>
+<!--    <CENTER><input type="button" style="width:200px;height:40;font-size:30px;font-family:Times New Roman" align = "center" id='startButton' value="Start Game" onClick="startGame()"></CENTER><br>-->
+    Copyright &copy; 2018 A Nawaz
+
+    </footer>
+
+</body>
+</html>

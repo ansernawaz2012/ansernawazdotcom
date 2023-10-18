@@ -1,0 +1,93 @@
+ header {
+    background-color: dodgerblue;
+/*    background-image: linear-gradient(dodgerblue, blue);*/
+    padding: 10px;
+    text-align: center;
+    font-size: 30px;
+    color: white;
+}
+     body
+{
+/*    background-color: lightgray;*/
+}
+            
+            article {
+/*    float: right;*/
+    padding: 20px;
+    width: 90%;
+    background-color: lightgray;
+    height: 100px;   
+}
+        
+        .buttonA
+        {
+            background-color:lightgreen;
+            width:100px;
+            height:70px;
+            font-size:50px;
+            font-family:Times New Roman;
+            text-align: center;
+            padding: 0px;
+            margin: 0px auto;
+            
+        }
+        
+        
+        .buttonB
+        {
+         background-color:yellow;
+            width:100px;
+            height:70px;
+            font-size:50px;
+            font-family:Times New Roman; 
+            text-align: center;
+/*
+            padding: 0px;
+            margin: 0px auto;
+*/
+            display: inline-block;
+            
+        }
+
+#questionNumber 
+{
+    font-size: 25px; height: 40px; text-decoration: underline;
+    
+}
+
+
+#question
+{
+    font-size: 30px; height: 40px; width:250px; border-style: double; font-weight:bold;
+    
+}
+
+#pointsTeamA, #pointsTeamB
+{
+    
+    font-size: 30px;
+}
+
+
+a
+    {
+        font-size: 20px;
+    }
+    
+    
+    a:link 
+    {
+        color: darkblue;
+    }
+    a:visited 
+    {
+        color: black;
+    }
+    a:hover
+    {
+        color: hotpink;
+    }
+    a:active
+    {
+        color: darkblue
+    }

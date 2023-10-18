@@ -1,0 +1,735 @@
+    <!DOCTYPE html>
+
+
+    <html lang="en">
+    <head>
+        <meta content='width=device-width, initial-scale=1' name='viewport'/>
+        <audio controls id="player" style="display: none">
+<source id="player-src" src="#">
+</audio>
+        <meta charset="UTF-8">
+        <title> Loading Arrays </title>
+        
+        <link rel="shortcut icon" href="">
+        
+<!--        load jquery library and script file-->
+        
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js">
+
+    
+   
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js">
+
+    
+   
+    </script>
+        
+                <script src="scripts/jquery.ui.touch-punch.min.js"></script>
+
+    
+    
+<!--    <script src="script.js"></script>-->
+        
+        <script>
+        
+        $(document).ready(function () {
+      window.startPos = window.endPos = {};
+
+      makeDraggable(); 
+
+      $('.drophere').droppable({
+        hoverClass: 'hoverClass',
+        drop: function(event, ui) {
+          var $from = $(ui.draggable),
+              $fromParent = $from.parent(),
+              $to = $(this).children(),
+              $toParent = $(this);
+
+          window.endPos = $to.offset();
+            
+             //document.getElementById("currentCorrect").innerHTML = "";
+            //swap div ids of containers
+            
+        //    var draggedOverDivID = $(this).children().attr("id");
+//            var JQdraggedOverDivID = '#' + $(this).children().attr("id");
+//            var JQdraggedDivID = '#' + $(ui.draggable).parent().attr("id");
+//            var dummy1DivId = 'dummy1';
+//            var dummy2DivId = 'dummy2';
+//            var draggedOverDivID = $(this).children().attr("id");
+//            var draggedDivID = $(ui.draggable).parent().attr("id");
+//            
+//            
+//            
+//            var tempDiv = $($to.attr("id"));
+//
+//     $(JQdraggedOverDivID).attr('id', 'dummy1');
+//            $(JQdraggedDivID).attr('id', 'dummy2');
+//            
+//            $(JQdraggedOverDivID).attr('id', draggedDivID);
+//            $(JQdraggedDivID).attr('id', draggedOverDivID);
+            
+//            var elementDraggedOverDiv = document.getElementById(draggedOverDivID);
+//            var elementDraggedDiv = document.getElementById(draggedDivID);
+//            elementDraggedOverDiv.setAttribute('id', 'dummy1');
+//            elementDraggedDiv.setAttribute('id', 'dummy2');
+//            elementDraggedOverDiv.setAttribute('id', draggedDivID);
+//            elementDraggedDiv.setAttribute('id', draggedOverDivID);
+            
+            
+      //      document.getElementById(draggedOverDivID).setAttribute('id', dummyDivId);
+
+      //      document.getElementById(draggedDivID).setAttribute('id', draggedOverDivID);
+            
+      //      document.getElementById(dummyDivId).setAttribute('id', draggedDivID);
+
+            
+//            document.getElementById($(this).children().attr("id")).setAttribute('id', $(ui.draggable).parent().attr("id"));
+           // document.getElementById($(ui.draggable).parent().attr("id")).setAttribute('id', $(this).children().attr("id"));
+//            document.getElementById($(ui.draggable).parent().attr("id")).setAttribute('id', $to.attr("id"));
+            
+            
+            
+            //check dragged object id ----------------------------------------
+         //  alert("Dragged over Div ID = " + $to.attr("id"));
+        //   alert("target div ID = " + event.target.id);
+//            alert("Dragged over Div ID = " + $(this).children().attr("id"));
+//           alert("target answer value " + event.target.value);
+//          
+//           alert("dragged item id " + $(ui.draggable).attr("id"));
+//            alert("dragged item value " + ui.draggable.val());
+//            alert("Parent Div id " + $(ui.draggable).parent().attr("id"));
+//            alert("Parent Div value " + $(ui.draggable).parent().val());
+//            alert("parentDiv =" + parentDiv + " and temp =" + temp);
+          
+//            var children = document.getElementById("answerOne").children;
+//            alert(children[0].getAttribute("id"));
+//            
+//            children[0].setAttribute("id", "monkey");
+//            alert(children[0].getAttribute("id"));
+//            
+//            children[0].setAttribute("value", "sheep");
+//            alert(children[0].getAttribute("value"));
+            
+            //         pass drop value to target value  ------------------------------
+            var temp = event.target.value;
+            
+            event.target.value = ui.draggable.val();
+        
+            
+            var parentDiv = $(ui.draggable).parent().attr("id");
+            
+            switch (parentDiv) {
+            case 'answerOne':
+            answerOne.value = temp;
+            break;
+                    case 'answerTwo':
+            answerTwo.value = temp;
+            break;
+                    case 'answerThree':
+            answerThree.value = temp;
+            break;
+                    case 'answerFour':
+            answerFour.value = temp;
+            break;
+                    case 'answerFive':
+            answerFive.value = temp;
+            break;
+  
+                default:
+    break;
+}
+            
+          //  alert(answerOne.value + " " + answerTwo.value+ " "  + answerThree.value+ " "+answerFour.value+ " "+answerFive.value);
+            
+            
+
+
+          swap($from, $from.offset(), window.endPos, 0);
+          swap($to, window.endPos, window.startPos, 500, function() {
+            $toParent.html($from.css({position: 'relative', left: '', top: '', 'z-index': ''}));
+            $fromParent.html($to.css({position: 'relative', left: '', top: '', 'z-index': ''}));
+            makeDraggable();
+              
+               
+          });
+            
+            
+        } 
+      });
+
+      function makeDraggable() {
+        $('.draghere').draggable({
+          zIndex: 99999,
+          revert: 'invalid',
+          start: function(event, ui) {
+            window.startPos = $(this).offset();
+            
+              
+
+          }
+        });
+      }
+
+      function swap($el, fromPos, toPos, duration, callback) {
+//          set place holder values to div values after every swap
+//          alert("Reaches swap function ");
+//          setPlaceHolderValues();
+          soundPlay("sounds/whoosh.mp3");
+          
+        $el.css('position', 'absolute')
+          .css(fromPos)
+          .animate(toPos, duration, function() {
+            if (callback) callback();
+          });
+      }
+            
+    });
+        
+        
+        </script>
+        
+        <script type="application/javascript">
+        //function to set placeholder values to div values
+//        function setPlaceHolderValues()
+//            
+            function sattoloArrayShuffle(items) {
+            for(var i = items.length; i-- > 1; ) {
+            var j = Math.floor(Math.random() * i);
+            var tmp = items[i];
+            items[i] = items[j];
+            items[j] = tmp;
+                }
+                return items;
+            }
+            
+//            {
+//                answerOne.value = document.getElementById("dragDivOne").innerHTML;
+//                answerTwo.value = document.getElementById("dragDivTwo").innerHTML;
+//                answerThree.value = document.getElementById("dragDivThree").innerHTML;
+//                answerFour.value = document.getElementById("dragDivFour").innerHTML;
+//                answerFive.value = document.getElementById("dragDivFive").innerHTML;
+//                
+//                return;
+//            }
+            
+               <!-- *********************** functions to play sounds ********************-->
+
+
+    function soundPlay(src){
+var audioElement = document.getElementById('player-src');
+audioElement.src =src ; //src for the player
+var myAudio = document.getElementById("player");
+myAudio.load();
+myAudio.play();
+}
+        
+        </script>
+        
+        
+        
+        <!--    Set initial global variables -->
+
+<script type="text/javascript">
+
+
+// var newQuestion = generateNumbersArray();
+ 
+    
+    var inputArray = new Array(5);
+    var arr = [];
+    var unsortedArray = [];
+    var shuffledArray = [];
+    var correctAnswerCount = 0;
+    var endOfGameFlag = false;
+
+   
+    
+    
+
+</script>
+        
+        <script type="application/javascript">
+            
+             function generateNumbersArray()
+            
+            
+            {
+//                alert("reaches gen numbers");
+                resetQuestion();
+                startTimer();
+                document.getElementById("currentCorrect").innerHTML = "";
+                
+                
+            while(arr.length < 5){
+                var randomnumber = Math.floor(Math.random()*100) + 1;
+                if(arr.indexOf(randomnumber) > -1) continue;
+                arr[arr.length] = randomnumber;
+                                }
+                //ensure new array is not affected with sort
+                    //changed unsortedArray to global variable            
+                //  unsortedArray = arr.concat([]);
+                arr.sort(function(a, b){return a - b});
+                 shuffledArray = arr.concat([]);
+                
+                // shuffle array to make each index different from solution
+                unsortedArray = sattoloArrayShuffle(shuffledArray);
+                
+                //   document.write(arr);
+                //question.value=unsortedArray;
+                
+               // document.getElementById("question").innerHTML = unsortedArray;
+                
+                //set question array elements to display in div spaces
+                
+               answerOne.value = unsortedArray[0];
+                answerTwo.value = unsortedArray[1];
+                answerThree.value = unsortedArray[2];
+                answerFour.value = unsortedArray[3];
+                answerFive.value = unsortedArray[4];
+                
+                
+                var num1 = unsortedArray[0];
+                var num2 = unsortedArray[1];
+                var num3 = unsortedArray[2];
+                var num4 = unsortedArray[3];
+                var num5 = unsortedArray[4];
+                
+                
+//                alert(children[0].getAttribute("id"));
+//            
+//            children[0].setAttribute("id", "monkey");
+//            alert(children[0].getAttribute("id"));
+//            
+//            children[0].setAttribute("value", "sheep");
+//            alert(children[0].getAttribute("value"));
+                
+                
+                
+                
+                if(endOfGameFlag)
+                    {
+                       // alert("reaches here");
+                 var childrenOne = document.getElementById('answerOne').children;
+                 //childrenOne[0].setAttribute('value', unsortedArray[0]);
+                        childrenOne[0].value = unsortedArray[0];
+                        childrenOne[0].innerHTML = unsortedArray[0];
+                
+                      //  alert("Array value 1 = " + unsortedArray[0] + " innerDiv value = " + childrenOne[0].getAttribute("value"));
+                        
+                        
+                var childrenTwo = document.getElementById('answerTwo').children;
+                 //childrenTwo[0].setAttribute('value', unsortedArray[1]);
+                        childrenTwo[0].value = unsortedArray[1];
+                        childrenTwo[0].innerHTML = unsortedArray[1];
+                
+                var childrenThree = document.getElementById('answerThree').children;
+                // childrenThree[0].setAttribute('value', unsortedArray[2]);
+                 childrenThree[0].value = unsortedArray[2];
+                        childrenThree[0].innerHTML = unsortedArray[2];
+                
+                var childrenFour = document.getElementById('answerFour').children;
+                 //childrenFour[0].setAttribute('value', unsortedArray[3]);
+                   childrenFour[0].value = unsortedArray[3];
+                        childrenFour[0].innerHTML = unsortedArray[3];
+                
+                var childrenFive = document.getElementById('answerFive').children;
+                 //childrenFive[0].setAttribute('value', unsortedArray[4]);
+                      childrenFive[0].value = unsortedArray[4];
+                        childrenFive[0].innerHTML = unsortedArray[4];
+                   
+                    
+                    
+                    }
+                
+                else
+                    {
+                
+                        
+                        
+                document.getElementById("dragDivOne").innerHTML = unsortedArray[0];
+                document.getElementById("dragDivTwo").innerHTML = unsortedArray[1];
+                document.getElementById("dragDivThree").innerHTML = unsortedArray[2];
+                document.getElementById("dragDivFour").innerHTML = unsortedArray[3];
+                document.getElementById("dragDivFive").innerHTML = unsortedArray[4];
+                        
+                 dragDivOne.value = unsortedArray[0];
+                dragDivTwo.value = unsortedArray[1];
+                dragDivThree.value = unsortedArray[2];
+                dragDivFour.value = unsortedArray[3];
+                dragDivFive.value = unsortedArray[4];
+                    }
+                
+                 //   alert("Place the numbers in ascending order " + unsortedArray);
+                
+                //disable start button
+                startButton.disabled = true;
+               // startButton.visibility = "hidden";
+                
+                checkAnswerButton.disabled = false;
+                endButton.disabled = false;
+                //document.getElementById('endButton').style.visibility = 'visible';
+                
+                endOfGameFlag = false;
+                
+                
+                return unsortedArray;
+            }
+            
+            
+            
+            // Check the answer entered from the user
+
+            
+            function checkAnswer (answerOne, answerTwo, answerThree, answerFour, answerFive, gameEnded)
+            {
+                
+                correctAnswerCount = 0;
+                
+                for (var i=0; i < inputArray.length; i++)
+                    
+                    {
+                        inputArray[i] = arguments[i];
+                        if (arguments[i] == arr[i])
+                            {
+                                      soundPlay("sounds/correctAnswer.mp3");
+
+                                correctAnswerCount++;}
+                        
+                        
+                    }
+                
+                
+                   //if all answers correct then end the game
+                if (correctAnswerCount==arr.length)
+                    {
+                        
+                        gameEnded = true;
+                                  soundPlay("sounds/taDa.mp3");
+
+                    }
+               else
+                
+                {
+                document.getElementById("currentCorrect").innerHTML = "You have "  + correctAnswerCount + " out of the " + arr.length + " positions correct!";
+                }
+                
+                if (gameEnded)
+                    {
+                        endOfGameFlag=true;
+                        unsortedArray=[];
+                        endButton.disabled = true;
+                        //document.getElementById('endButton').style.visibility = 'hidden';
+                        startButton.disabled = false;
+                        startButton.value = "Start New Game";
+                        checkAnswerButton.disabled = true;
+                        stopTimer();
+                        
+                        //get time from counter and reset 
+                        var seconds = document.getElementById("seconds").innerText;
+                        var minutes = document.getElementById("minutes").innerText
+                        document.getElementById("seconds").innerText = "";
+                        document.getElementById("minutes").innerText = "";
+                       
+                        
+                        if (correctAnswerCount == arr.length)
+                            {document.getElementById("currentCorrect").innerHTML = "Well done! You have managed to get all "  + arr.length + " correct. <br/> Time taken: " + minutes + " min " + seconds + " sec";}
+                        else{
+                            document.getElementById("currentCorrect").innerHTML = "Game Over! You got " + correctAnswerCount + " out of " + arr.length + " correct. <br/> Time taken: " + minutes + " min " + seconds + " sec <br/>" + '<input type="button" id="finalAnswer" value ="Reveal Answer" onClick="showAnswer();">';
+                            
+                            
+                            
+                          //  document.getElementById("currentCorrect").innerHTML = '<input type="button" value ="Reveal Answer">';
+                            
+                            //add button dynamically to reveal solution
+                            
+                            
+//                            var btn = document.createElement("BUTTON");
+//    var t = document.createTextNode("CLICK ME");
+//
+//    btn.setAttribute("style","color:red;font-size:23px");
+//
+//    btn.appendChild(t);
+//    document.body.appendChild(btn);
+
+    //btn.setAttribute("onclick", function() { alert("blabla"); });
+   // btn.addEventListener('click', function(event){ do stuff });
+   // btn.onclick = function() { showAnswer();};
+                            return;
+                            
+                            
+                            //--------------------------------------------------
+                        }
+                    }
+               
+                return;
+            }
+            
+            function resetQuestion()
+            {
+                
+                arr = [];
+                unsortedArray = [];
+                shuffledArray = [];
+                answerOne.value = "";
+                answerTwo.value = "";
+                answerThree.value = "";
+                answerFour.value = "";
+                answerFive.value = "";
+                
+                return;
+            }
+            
+            //Timer functions
+            
+            //Start the clock
+            function startTimer() {
+				var seconds = 0;
+				timer = setInterval(function() {
+					seconds ++;
+					document.getElementById("seconds").innerText = seconds % 60;
+					document.getElementById("minutes").innerText = parseInt(seconds / 60);
+					//activateButtons(true, false);
+				}, 1000);
+			}
+			
+            // stop the clock
+            
+			function stopTimer() {
+				clearInterval(timer);
+				//activateButtons(false, true);
+			}
+            
+
+            
+            function showAnswer()
+            {
+                
+                document.getElementById("currentCorrect").innerHTML = "The correct answer is <br/>" + arr;
+                
+                
+              
+                
+            }
+            
+        </script>
+        
+<!--        styling of div elements-->
+        
+        <style>
+    
+        .drophere {
+      float: left;
+      margin-left: 50px;
+      width: 150px;
+      height: 75px;
+      border: 1px solid red;
+      padding: 5px;
+/*
+      font-size: 70px;
+            vertical-align: middle;
+         
+*/
+            
+    }
+/*            styling for dynamically created button to reveal final answer*/
+            
+            #finalAnswer
+            {
+                
+                width: 140px;
+    height: 60px; 
+                border: 2px solid grey; 
+                border-radius: 25px; 
+                font-family:Georgia; 
+                font-weight: bold; 
+                font-size: 15px;
+                
+            }
+
+    .draghere {
+      width: 150px;
+      height: 75px;
+      background: green;
+      text-align: center;
+      line-height: 70px;
+      font-size: 70px;
+      font-family:Comic Sans Ms;
+      font-weight: bold;
+      vertical-align: middle;
+
+
+    }
+    .ui-draggable-dragging {
+      background: blue;
+    }
+
+    .hoverClass {
+      border: 2px solid red;
+      background: black;
+    }
+            
+            header {
+    background-color: #667;
+    padding: 10px;
+/*    text-align: center;*/
+    font-size: 25px;
+    color: white;
+}
+            
+            
+            article {
+/*    float: right;*/
+    padding: 20px;
+    width: 90%;
+/*    background-color: #f1f1f1;*/
+    height: 100px;   
+}
+            
+            nav {
+    float: left;
+    width: 10%;
+    height: 250px;   
+    background: #ccc;
+    padding: 10px;
+}
+            
+            section:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+        
+    </style>
+        
+        
+        
+        </head>
+        
+        
+        
+        <body style="background-color:aliceblue;">
+            
+            <header>
+<!--
+            <div align="center" style="background-color:powderblue;">
+            <h2>Arrange from smallest to biggest</h2>
+            </div>
+-->
+        
+                <h3 align = 'center'>Arrange the numbers in ascending order: </h3>
+                
+                <br>
+                <div>
+                    <input type="button" style = " height: 70px; font-size: 35px;
+      font-family:Georgia; font-weight: bold; border: 2px solid grey; border-radius: 25px;" id = 'startButton' value = "Start" onclick="generateNumbersArray();" >
+                
+                </div>
+                
+            <div class="timer" align = 'center'>
+                
+                Time: 
+			<span id="minutes">0</span> min 
+			<span id="seconds">0</span> sec
+		    </div>
+<!--
+            <div align = "center">
+                <p id = 'currentCorrect'></p>
+            </div>
+-->
+<!--
+        <br>
+<input type="button" style = " height: 100px; font-size: 35px;
+      font-family:Georgia;
+      font-weight: bold;" id = 'startButton' value = "Start" onclick="generateNumbersArray();" >
+        <br>
+-->
+            
+            </header>
+            
+            
+            <section>
+            <nav>
+<!--
+                 <input type="button" style = "width: 120px;
+    height: 100px; font-size: 35px;
+      font-family:Georgia;
+      font-weight: bold;" id = 'startButton' value = "Start" onclick="generateNumbersArray();" >
+-->
+                <br>
+                <br>
+                
+                <!--                 pass div values as parameters to check function-->
+            <input type="button" style = "width: 140px;
+    height: 60px; border: 2px solid grey; border-radius: 25px; font-family:Georgia; font-weight: bold; font-size: 15px;" align='center' id = 'checkAnswerButton' disabled = true value="Check Answers" onClick= "checkAnswer(answerOne.value, answerTwo.value, answerThree.value, answerFour.value, answerFive.value, false);">     
+                 
+                 <br>
+                 <br> 
+                 <input type="button" style = "width: 140px;
+    height: 60px; border: 2px solid grey; border-radius: 25px; font-family:Georgia; font-weight: bold; font-size: 15px;" align='center' id='endButton' disabled=true value = "End Game" onclick="checkAnswer(answerOne.value, answerTwo.value, answerThree.value, answerFour.value, answerFive.value, true)">
+                
+            </nav>
+                
+                
+                
+                <article>
+                    <div  class='drophere' id='answerOne'>
+    <div  class='draghere' id = 'dragDivOne'> </div>
+  </div> 
+  <div class='drophere' id='answerTwo'>
+    <div class="draghere" id = 'dragDivTwo'></div>
+  </div>
+  <div class='drophere' id='answerThree'>
+    <div class="draghere" id = 'dragDivThree'></div>
+  </div>
+  <div class='drophere' id='answerFour'>
+    <div class="draghere" id = 'dragDivFour'></div>
+  </div>
+  <div class='drophere' id='answerFive'>
+      <div class="draghere"  id = 'dragDivFive'></div>
+  </div> 
+           
+                
+                </article>
+            
+                
+                <article align = "center">
+                <p align = 'center' style = "font-size: 30px; font-family:Georgia; font-weight: bold;  vertical-align: top;" id = 'currentCorrect'></p>
+                </article>
+            
+            
+            </section>
+                
+           
+
+<!--             <form style="font-family:Comic Sans Ms; ">-->
+<!--
+    Smallest: <input type="text" size = "5" id='answerOne'> &#60;
+     <input type="text" size = "5" id='answerTwo'> &#60;
+     <input type="text" size = "5" id='answerThree'> &#60;
+     <input type="text" size = "5" id='answerFour'> &#60;
+     <input type="text" size = "5" id='answerFive'> :Biggest<br>
+-->
+                 
+               
+                 
+                 
+                 
+  
+<!--  <input type="button" align="middle" id = 'checkAnswerButton' disabled = true value="Check" onClick= "checkAnswer(answerOne.value, answerTwo.value, answerThree.value, answerFour.value, answerFive.value, false);">-->
+                 
+
+<!--</form> -->
+<!--
+            <footer>
+  
+</footer>
+            
+-->
+                                    <a style = "font-size: 25px;" href="index.html">Home</a>
+
+        </body>
+
+
+    </html>

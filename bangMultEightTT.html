@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html>
+
+<title>
+
+Eight Times Table
+
+</title>
+
+    
+<!------------------------------------------------------------------
+   
+
+04102018 remove text fields for displaying score and messages, 
+    replace with document.innerhtml
+
+10102018 removed javascript and css to external files
+-------------------------------------------------------------->
+    
+    
+
+<head>
+
+<audio controls id="player" style="display: none">
+<source id="player-src" src="#">
+</audio>
+    
+                <link rel="stylesheet" href="style/bang.css">
+    <script>
+    var timesTable = 8;
+    </script>
+    
+    <script src="scripts/bangCommon.js"></script>
+        <script src="scripts/bangTimesTable.js"></script>
+
+
+
+
+
+
+
+</head>
+
+<body style ="background-color: #f1f1f1;">
+
+
+     <div class = "headerContainer">
+                <div class = "header">
+                <div class = "title">Multiplication - Eight Times Table </div>
+                
+                
+                
+                </div>
+            
+            </div>
+        
+         <div class = "menuContainer">
+                <div class = "menu">
+                    <div class = "menuBlank"></div>
+                <div class = "menuItem"><a href = "index.html">Home</a></div>
+                    <div class = "menuItem"><a href = "gameIndex.html">Game Menu</a></div>
+
+                
+                
+                </div>
+        
+        </div>
+
+
+
+
+    
+    
+    <nav>
+    <p id="questionNumber" align = "left" >
+        
+        </p>
+    </nav>
+    
+<table border="0" align = "center">
+<th>
+<tr>
+    
+<!--    <td id="questionNumber" align = "left" style="font-size: 25px; height: 40px; text-decoration: underline;"></td>-->
+    
+<td id="question" align = "center" >
+
+</td>
+</tr>
+<tr>
+<td align = "center">
+
+</td>
+</th>
+    </table>
+
+<table border="0" align = "center">
+<tr>
+<th style="font-size: 25px;">Team A</th>
+<th width = "300">Vs</th>
+<th style="font-size: 25px;">Team B</th>
+</tr>
+<tr>
+
+        <th id="pointsTeamA"  style="font-size: 30px;">  
+
+
+            
+    <th></th>
+
+    
+   <th id="pointsTeamB"  style="font-size: 30px;"> 
+</tr>
+<tr>
+<td><input type="button" class="buttonA" id="teamAButton1"  name="teamA" disabled = true  value="" onClick= "checkAnswer(answer, answersArray[0], 'teamA')"><br>
+</td>
+<td align = "center"><input type="button"  style="width:200px;height:40;font-size:30px;font-family:Times New Roman" align = "center" id='endButton' disabled = true value="End Game" onClick="endGame()">
+</td>
+<td><input type="button" class="buttonB" id='teamB_Button1'  name="teamB" disabled = true value="" onClick= "checkAnswer(answer, answersArray[0], 'teamB')"><br>
+</td>
+</tr>
+<tr>
+<td><input type="button" class="buttonA" id='teamAButton2'  name="teamA" disabled = true value="" onClick= "checkAnswer(answer, answersArray[1], 'teamA')"><br>
+</td>
+<td align = "center"><input type="button"  style="width:200px;height:40;font-size:30px;font-family:Times New Roman" align = "center" id='startButton' value="Start Game" onClick="startGame()">
+</td>
+<td><input type="button" class="buttonB" id='teamB_Button2'  name="teamB" disabled = true value="" onClick= "checkAnswer(answer, answersArray[1], 'teamB')"></td>
+</tr>
+<tr>
+<td><input type="button" class="buttonA" id='teamAButton3'  id="teamA" disabled = true value="" onClick= "checkAnswer(answer, answersArray[2], 'teamA')"><br>
+</td>
+<td style="font-size: 50px;" align = "center">
+<div id="countDown"></div>
+</td>
+    
+<td><input type="button" class="buttonB" id='teamB_Button3'  name="teamB" disabled = true value="" onClick= "checkAnswer(answer, answersArray[2], 'teamB')"></td>
+</tr>
+<tr>
+<td><input type="button" class="buttonA" id='teamAButton4'  id="teamA" disabled = true value="" onClick= "checkAnswer(answer, answersArray[3], 'teamA')"><br>
+</td>
+<td id = "message" align = "center" style="font-size: 25px; height: 40px; font-weight:bold;">
+</td>
+<td><input type="button" class="buttonB" id='teamB_Button4'  name="teamB" disabled = true value="" onClick= "checkAnswer(answer, answersArray[3], 'teamB')"></td>
+</tr>
+    <tr>
+        
+    </tr>
+</table>
+   
+    
+
+
+
+
+
+
+<footer>
+
+    
+    Copyright &copy; 2018 A Nawaz
+
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,200 @@
+* {
+    box-sizing: border-box;
+}
+
+.menu {
+/*  border: 1px solid #fff;    */
+/*
+  width: 100%;
+    height: 100%;
+    margin-left: 15px;
+    margin-right: 15px;
+*/
+    padding-top: 5px;
+    background-color: dodgerblue;
+/*    background-image: linear-gradient( blue, dodgerblue);*/
+    display: flex;
+    flex-direction: row;
+/*    margin-left: auto;*/
+    justify-content: space-around;
+    color: white;
+    
+
+}
+
+.menuItem a
+{
+    
+    color:white;
+}
+
+
+.blank
+{
+    width: 65%;
+}
+
+.navBlank
+{
+/*    height: 10%;*/
+    
+}
+
+/*
+a
+{
+    
+    color: white;
+}
+*/
+
+.headerContainer {
+  color: #fff;
+/*  background-color: dodgerblue;   */
+/*  padding: 20px 0;*/
+     display: flex;
+     justify-content: flex-end;
+    
+    background-image: linear-gradient(dodgerblue, blue);
+    
+}
+
+.header {
+/*  border: 1px solid #fff;    */
+  width: 100%;
+    height: 100%;
+    margin-left: 15px;
+    margin-right: 15px;
+    display: flex;
+    justify-content: center;
+    
+}
+
+
+.title
+{font-size: 50px;
+ align-self: flex-start;
+    justify-content: flex-start;
+    padding: 20px;
+  
+    
+}
+
+
+.vision
+{
+    font-size: 20px;
+   color: magenta;
+    align-self: flex-end;
+/*    margin-right: auto;*/
+}
+
+.bodyContainer
+{
+    display:flex;
+    border: 1px solid blue;
+}
+
+.navigation
+{
+    height: 400px;
+    width: 20%;
+    background-image: linear-gradient(to right, blue, #F8F4FF);
+    background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+/*    align-items: */
+    padding-left: 15px;
+    align-content: space-around;
+    
+}
+
+
+.main
+{
+    width: 100%;
+    background-color: #F8F4FF;
+    display: flex;
+    align-items: center;
+/*    flex-direction: column;*/
+    padding: 5px;
+}
+
+.mainTitle
+{
+   font-size: 30px; 
+    font-family: fantasy;
+    width: 30%;
+    align-self: center;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+.mainQuote
+{
+/*    border: 1px solid blue;*/
+    font-size: 25px;
+/*     text-shadow: 2px 2px grey;*/
+        font-family: cursive;
+
+    width: 30%;
+    align-self: center;
+    font-weight: bold;
+    padding-bottom: 10px;
+    text-align: center;
+}
+.mainPic
+{
+    width:40%;
+    justify-content: center;
+    align-self: center;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    
+}
+
+#enterLink
+{
+    color: blue;
+}
+
+ .navItem a
+{
+    font-size: 25px;
+    color: white;
+    
+}
+
+.navTitle
+{
+  font-size: 20px;
+    color: darkslategrey;  
+}
+
+
+
+
+.footer
+{
+    background-image: linear-gradient(blue, dodgerblue);
+    color: white;
+    height: 70px;
+}
+
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 600px) {
+    .mainTitle, .mainTip, .mainPic {
+        width: 100%;
+        height: auto;
+    }
+    
+}
+        
+        
+        
+
+
